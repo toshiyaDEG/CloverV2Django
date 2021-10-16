@@ -1,0 +1,24 @@
+{% extends "cuentas/base.html" %}
+
+{% block title %} Registro {% endblock %}
+
+{% block content %}
+
+<section class="mi-tarea section">
+    <div class="container" style="width: 500px;">
+        <h2 class="text-center my-5">Nueva tarea</h2>
+        <h3>Sube aquí la nueva tarea que asignarás</h3>
+        <form method='POST'>
+            {% csrf_token %}
+            {% for field in registration_form %}
+                    <p>
+                        {{field.label_tag}}
+                        {{field}}
+
+                    </p>
+            {% endfor %}
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "subir_tarea/base.html" %}
+
+{% block title %} Subir tarea {% endblock %}
+
+{% block content %}
+
+<section class="mi-tarea section">
+    <div class="container" style="width: 500px;">
+        <h2 class="text-center my-5">Nueva tarea</h2>
+        <h3>Sube aquí la nueva tarea que asignarás</h3>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Materia</label>
+                        </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Elige...</option>
+                            <option value="1">Lengua materna</option>
+                            <option value="2">Desafíos matemáticos</option>
+                            <option value="3">Ciencias naturales</option>
+                            <option value="4">Educación cíviva y ética</option>
+                            <option value="5">Jalisco</option>
+                            <option value="6">Educación física</option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Tema de la tarea</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="tema">
+            </div>
+            <div class="form-group">
+                <label for="fechaLimite">Fecha límite de entrega</label>
+                <input type="date" id="fechaLimite" name="fechaLimite">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Carga el archivo de la tarea</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="archivo">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Comentarios para el alumno</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario"></textarea>
+            </div>
+            <p>Aquí debe cargar la visualización del archivo.</p>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

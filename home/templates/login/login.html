@@ -1,0 +1,31 @@
+{% extends "login/base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<section class="login section text-center">
+    <div class="container" style="width: 400px;">
+        <h2 class="text-center my-3">Entrar</h2>
+        <form class="form-signin" method="post">
+            <div class="form-group">
+                <img class="mb-2" src="https://imgur.com/fNKba6L.png" alt="Clover Logo" width:"75" height="75"/>
+                <h3 class="mb-3">Por favor ingresa tus datos para entrar</h3>
+                {% csrf_token %}
+                Usuario: <input type="text" name="username" value="" required>
+            </div>
+            <div class="form-group"></div>
+                Clave: <input type="password" name="password" value="" required>
+                <!-- Para indicar a que url se redirige después de hacer login -->
+                {% if next %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                {% else %}
+                <input type="hidden" name="next" value="/avisos/" />
+                {% endif %}
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
