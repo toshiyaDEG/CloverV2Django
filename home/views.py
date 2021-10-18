@@ -7,7 +7,7 @@ def index(request):
     return render(request, "home/index.html")
 
 
-@login_required
-def avisos(request):
-    """Atiende la petición GET /"""
-    return render(request, "avisos/avisos.html")
+# @login_required
+# def avisos(request):
+#     """Atiende la petición GET /"""
+#     return render(request, "avisos/avisos.html")
