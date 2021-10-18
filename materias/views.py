@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from subir_tarea.models import Tarea
+#from subir_tarea.models import Tarea
 
 
 @login_required()

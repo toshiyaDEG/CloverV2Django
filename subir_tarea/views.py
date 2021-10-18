@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Tarea
 
 
-# Create your views here.
 @login_required()
 def subir_tarea(request):
     if request.method == "POST":
@@ -17,7 +16,8 @@ def subir_tarea(request):
             archivo=archivo2,
             tema = request.POST["tema"],
             comentario = request.POST["comentario"],
-            fechaLimite = request.POST["fechaLimite"]
+            fechaLimite = request.POST["fechaLimite"],
+            materia_tarea= request.POST.get("materia_tarea")
         )
         return HttpResponse("Tu archivo se ha subido correctamente")
     return render(request, "subir_tarea/subir_tarea.html")
