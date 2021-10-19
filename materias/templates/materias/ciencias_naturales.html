@@ -1,0 +1,22 @@
+{% extends "materias/base.html" %}
+
+{% block title %} Subir tarea {% endblock %}
+
+{% block content %}
+
+<section class="mi-tarea section">
+    <div class="container-sm">
+        <h2 class="text-center my-5">Tareas de Ciencias Naturales</h2>
+        <h3>Tema de la tarea : Fecha de asignación : Fecha de entrega</h3>
+        {% for tarea in tarea_cn %}
+        <ul class="list-group list-group-horizontal" style="margin-top:10px; margin-bottom: 10px;">
+            <li class="list-group-item">{{ tarea.tema }}</li>
+            <li class="list-group-item">{{ tarea.fecha }}</li>
+            <li class="list-group-item" style="border-top-right-radius: .25rem; border-bottom-right-radius: .25rem;">{{ tarea.fechaLimite }}</li>
+            <a href="/subir_respuesta/{{tarea.id}}" class="btn btn-primary btn-lg ml-2 active" role="button">Ver tarea</a>
+            <!-- <button class="ml-2">Ver tarea</button> -->
+        </ul>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
